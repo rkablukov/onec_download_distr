@@ -1,4 +1,4 @@
-# onec_dock
+# onec_download_distr
 
 Скрипт закачки дистрибутива 1С для Debian
 
