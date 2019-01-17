@@ -76,7 +76,9 @@ CLIENTLINK=$(curl -s -G \
 
 mkdir -p dist
 
-curl --fail -b /tmp/cookies.txt -o dist/${VER}_client64.tar.gz -L "$CLIENTLINK"
-#curl --fail -b /tmp/cookies.txt -o dist/${VER}_server64.tar.gz -L "$SERVERLINK"
+mkdir -p dist/deb_client64
+curl --fail -b /tmp/cookies.txt -o dist/deb_client64/${VER}_client64.tar.gz -L "$CLIENTLINK"
+#dist/deb_server64
+#curl --fail -b /tmp/cookies.txt -o dist/deb_server64/${VER}_server64.tar.gz -L "$SERVERLINK"
 
 rm /tmp/cookies.txt
