@@ -67,18 +67,16 @@ CLIENTLINK=$(curl -s -G \
     --data-urlencode "path=Platform\\$VER1\\client_$VER1.deb64.tar.gz" \
     https://releases.1c.ru/version_file | grep -oP '(?<=a href=")[^"]+(?=">Скачать дистрибутив)')
 
-#SERVERLINK=$(curl -s -G \
-#    -b /tmp/cookies.txt \
-#    --data-urlencode "nick=Platform83" \
-#    --data-urlencode "ver=$VER" \
-#    --data-urlencode "path=Platform\\$VER1\\deb64_$VER1.tar.gz" \
-#    https://releases.1c.ru/version_file | grep -oP '(?<=a href=")[^"]+(?=">Скачать дистрибутив)')
+SERVERLINK=$(curl -s -G \
+    -b /tmp/cookies.txt \
+    --data-urlencode "nick=Platform83" \
+    --data-urlencode "ver=$VER" \
+    --data-urlencode "path=Platform\\$VER1\\deb64_$VER1.tar.gz" \
+    https://releases.1c.ru/version_file | grep -oP '(?<=a href=")[^"]+(?=">Скачать дистрибутив)')
 
 mkdir -p dist
 
-mkdir -p dist/deb_client64
-curl --fail -b /tmp/cookies.txt -o dist/deb_client64/${VER}_client64.tar.gz -L "$CLIENTLINK"
-#dist/deb_server64
-#curl --fail -b /tmp/cookies.txt -o dist/deb_server64/${VER}_server64.tar.gz -L "$SERVERLINK"
+curl --fail -b /tmp/cookies.txt -o dist/${VER}_client64.tar.gz -L "$CLIENTLINK"
+curl --fail -b /tmp/cookies.txt -o dist/${VER}_server64.tar.gz -L "$SERVERLINK"
 
 rm /tmp/cookies.txt
