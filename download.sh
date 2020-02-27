@@ -76,7 +76,8 @@ SERVERLINK=$(curl -s -G \
 
 mkdir -p dist
 
-curl --fail -b /tmp/cookies.txt -o dist/${VER}_client64.tar.gz -L "$CLIENTLINK"
-curl --fail -b /tmp/cookies.txt -o dist/${VER}_server64.tar.gz -L "$SERVERLINK"
+curl --fail -b /tmp/cookies.txt -o dist/client64.tar.gz -L "$CLIENTLINK"
+curl --fail -b /tmp/cookies.txt -o dist/server64.tar.gz -L "$SERVERLINK"
+echo ${VER} > dist/version.txt
 
 rm /tmp/cookies.txt
