@@ -9,6 +9,9 @@ service_exists() {
     fi
 }
 
+# устанавливаем шрифты MS
+apt-get -y install ttf-mscorefonts-installer
+
 # останавливаем сервер 1с
 if service_exists srv1cv83; then
     service srv1cv83 stop
